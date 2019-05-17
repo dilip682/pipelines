@@ -12,8 +12,17 @@ pipeline {
       }
     }
     stage('predev-build-dataservices.xml') {
-      steps {
-        build 'predev-build-dataservices.xml'
+      parallel {
+        stage('predev-build-dataservices.xml') {
+          steps {
+            build 'predev-build-dataservices.xml'
+          }
+        }
+        stage('predev-build-asyncservice') {
+          steps {
+            build 'predev-build-asyncservice'
+          }
+        }
       }
     }
     stage('predev-build-brcore') {
@@ -34,11 +43,6 @@ pipeline {
     stage('predev-build-marketplace') {
       steps {
         build 'predev-build-marketplace'
-      }
-    }
-    stage('predev-deploy-asyncservice') {
-      steps {
-        build 'predev-deploy-asyncservice'
       }
     }
   }
