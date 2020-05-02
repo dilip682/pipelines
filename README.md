@@ -11,9 +11,9 @@ On WorkStation/Control machine:
 File - 01.Install-Agents-Wrapper.sh
 
 	#!/bin/sh
-	SERVER_LIST=dilip6823c.mylabserver.com,dilip6824c.mylabserver.com
+	SERVER_LIST=dilip6823c.mylabserver.com,dilip6823c.mylabserver.com
 	admin_user=cloud_user
-	admin_password=************
+	admin_password=Gana@123
 	git_repo_url=git@github.com:dilip682/pipelines.git
 	git_repo_name=pipelines
 
@@ -26,7 +26,6 @@ File - 01.Install-Agents-Wrapper.sh
 		sshpass -p "${admin_password}" ssh ${admin_user}@${i} "ssh-agent bash -c 'ssh-add /home/${admin_user}/git-key; rm -Rf pipelines; git clone ${git_repo_url}'"
 		sshpass -p "${admin_password}" ssh ${admin_user}@${i} "sh ~/${git_repo_name}/agent-install.sh"
 	  done
-  
 
 Below are commands used:
 ------------------------------
