@@ -11,6 +11,6 @@ git_repo_name=pipelines
 	# sshpass -p "${admin_password}" ssh -t ${admin_user}@${i} "sudo yum -y install git"
 	sshpass -p "${admin_password}" scp -o StrictHostKeyChecking=no ~/git-key ${admin_user}@${i}:/home/${admin_user}/
 	sshpass -p "${admin_password}" ssh ${admin_user}@${i} "ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts"
-	sshpass -p "${admin_password}" ssh ${admin_user}@${i} "ssh-agent bash -c 'ssh-add /home/${admin_user}/git-key; rm -Rf pipelines; git clone ${git_repo_url}'"
+	sshpass -p "${admin_password}" ssh ${admin_user}@${i} "ssh-agent bash -c 'ssh-add /home/${admin_user}/git-key; rm -Rf ${git_repo_name}; git clone ${git_repo_url}'"
 	sshpass -p "${admin_password}" ssh ${admin_user}@${i} "sh ~/${git_repo_name}/agent-install.sh"
   done
