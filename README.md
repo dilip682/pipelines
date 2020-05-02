@@ -1,5 +1,8 @@
 Remote Agent Install Steps:
 ------------------------------
+agent-install.sh - file should be available in Git-Repo to install Agents. 
+01.Install-Agents-Wrapper.sh - This script will loop through each server mentioned in SERVER_LIST, downloads the Git-Repo and executes agent-install.sh script.
+git-key - This is the key file to be created on workstation/control system & to be copied to Git-Hub --> Deploy Keys.
 
 On WorkStation/Control machine:
 ------------------------------
